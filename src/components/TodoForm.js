@@ -3,6 +3,10 @@ import React, { useState } from "react";
 function TodoForm() {
   const [input, setInput] = useState("");
 
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -10,6 +14,8 @@ function TodoForm() {
       id: Math.floor(Math.random() * 10000),
       text: input,
     });
+
+    setInput('') //clears the form after a todo submit
   };
 
   return (
@@ -20,6 +26,7 @@ function TodoForm() {
         value={input}
         name="text"
         className="todo-input"
+        onChange={handleChange}
       ></input>
       <button className="todo-button">Add todo</button>
     </form>
