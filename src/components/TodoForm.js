@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TodoForm() {
+function TodoForm(props) {
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -12,10 +12,10 @@ function TodoForm() {
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input,
+      text: input
     });
 
-    setInput('') //clears the form after a todo submit
+    setInput(''); //clears the form after a todo submit
   };
 
   return (
